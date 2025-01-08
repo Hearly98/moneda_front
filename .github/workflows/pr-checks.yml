@@ -1,0 +1,41 @@
+name: Pull Request Checks
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint-check:
+    name: Verificar linting
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22.11'
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Ejecutar linting
+        run: npm run lint
+
+  commit-check:
+    name: Verificar Conventional Commits
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Verificar Conventional Commits
+        run: |
+          commits=$(git log origin/main..HEAD --pretty=%B)
+          echo "$commits" | npx commitlint
