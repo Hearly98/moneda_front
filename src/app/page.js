@@ -1,3 +1,5 @@
 export default function Home() {
-  return <div>Hello World</div>
+  const helloWorld = "Hello World!"
+
+  return <div>{helloWorld}</div>
 }
