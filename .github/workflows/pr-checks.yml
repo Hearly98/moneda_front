@@ -32,11 +32,13 @@ jobs:
     steps:
       - name: Checkout código
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.ref }}
 
       - name: Instalar dependencias
         run: npm install --legacy-peer-deps
 
       - name: Verificar Conventional Commits
         run: |
-          commits=$(git log --pretty=%B)
-          echo "$commits" | npx commitlint
+          git log --pretty=%B | npx commitlint

@@ -33,12 +33,12 @@ const eslintConfig = [
       },
     },
     rules: {
-      "no-console": "warn",
+      "no-console": "error",
       "react/prop-types": "off",
       "react/jsx-uses-react": "off",
       "react/react-in-jsx-scope": "off",
       "prettier/prettier": [
-        "warn",
+        "error",
         {
           printWidth: 100,
           trailingComma: "all",
@@ -51,7 +51,7 @@ const eslintConfig = [
         },
       ],
       "no-unused-vars": [
-        "warn",
+        "error",
         {
           args: "after-used",
           ignoreRestSiblings: false,
@@ -59,7 +59,7 @@ const eslintConfig = [
         },
       ],
       "import/order": [
-        "warn",
+        "error",
         {
           groups: [
             "type",
