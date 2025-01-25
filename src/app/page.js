@@ -1,5 +1,9 @@
-export default function Home() {
-  const helloWorld = "Hello World!"
+import Mockup from "@/components/ui/images/Mockup"
 
-  return <div>{helloWorld}</div>
+export default function Home() {
+  return (
+    <div className="bg-transparent p-4">
+      <Mockup size="300" />
+    </div>
+  )
 }
